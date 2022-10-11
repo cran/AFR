@@ -2,7 +2,7 @@ Package: AFR
 Type: Package
 Title: Toolkit for Regression Analysis of Kazakhstan Banking Sector
         Data
-Version: 0.2.0
+Version: 0.2.1
 Copyright: The Agency of the Republic of Kazakhstan for Regulation and
         Development of Financial Market (ARDFM)
 Authors@R: c(person("Timur", "Abilkassymov", role = "aut"),
@@ -29,5 +29,5 @@ VignetteBuilder: knitr
 LazyData: true
 RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2022-10-11 12:14:37 UTC; aluamakhmetova
-Date/Publication: 2022-10-11 12:32:33 UTC
+Packaged: 2022-10-11 13:31:07 UTC; aluamakhmetova
+Date/Publication: 2022-10-11 15:52:33 UTC

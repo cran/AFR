@@ -1,4 +1,4 @@
-549f74174131bd47dae9e682125abc7b *DESCRIPTION
+b887f39589c68820692ddce724906fa1 *DESCRIPTION
 5120db941f3237d16390f71df3a08611 *NAMESPACE
 d820b3e9076a0bea581a45a248f53307 *R/adf.R
 e496addfcaf49be651f348690d8ef619 *R/bg.R
@@ -9,7 +9,7 @@ ea3e7c60a6d11f3e1fc406f1535ec58a *R/checkdata.R
 98e54bfb5b22717b8d50a83a8f3110d1 *R/dec_plot.R
 02ba69e5d03c1409ea2f26ab13b1ebe3 *R/diff.R
 c8ca4c42632671c9190b47291b67115b *R/gq.R
-967d3ab85445be6e563cd0f9477cb293 *R/macroKZ.R
+3070150050a30f73b060e82abf07f031 *R/macroKZ.R
 12382f61032e2f5e7e35e3ed312c0245 *R/ols_test_normality.R
 3ac54f66443b1a084b909f3f10cb5367 *R/opt_size.R
 9a3a1863a932dbabf46a54958518b1e3 *R/print.R
@@ -19,10 +19,10 @@ fecd3d293274b8726cae44a7d5bad074 *R/reg_test.R
 b4b71bcb2b66fa2468753ede9cd9b914 *R/vif_reg.R
 f88ce7dc7b726bf8c4d469ac0206f0a8 *R/zzz.R
 a03880562900e9d153408e9012f46467 *build/vignette.rds
-e9e2db8ef99422e8f3bd17793ddd4f82 *data/macroKZ.RData
+78e92ef58704e3e07359815f385ce9f0 *data/macroKZ.RData
 c97d8b2bd2965909f6b63c0187c8f03e *inst/doc/Data-transformation.R
 7296442c2a2ce029ad333a502981bc18 *inst/doc/Data-transformation.Rmd
-bef84f663fce34920b3e185ef2d45e86 *inst/doc/Data-transformation.html
+84f2a9cf78b04ac27f5ca6508dd82c04 *inst/doc/Data-transformation.html
 5771052e697bcf2de5e803118c1efd37 *inst/doc/Diagnostic-tests.R
 30b6d71e647dc53a20c7455d6833e911 *inst/doc/Diagnostic-tests.Rmd
 8a1b5af1b9a54de4b1f6309836b470b0 *inst/doc/Diagnostic-tests.html
@@ -39,7 +39,7 @@ b25456a3a70b78bd119cff5cc9c6a691 *man/checkdata.Rd
 398c9c2b1c5801b1736004e9088b634c *man/dec_plot.Rd
 87c05322a197d5c7dde1181ea95757cf *man/difflog.Rd
 a01e773d536871e3e281c25f5e042a0b *man/gq.Rd
-46db815070fb2663209889b2ab3e1d31 *man/macroKZ.Rd
+256183009d889790de4cbe5cf175b86d *man/macroKZ.Rd
 1108eb3d9a9e138f4113d07a50bdd5d9 *man/ols_test_normality.Rd
 ec417b8ae678f5096ee3642720904cb6 *man/opt_size.Rd
 399dfa4732c92d5c0bf2187380e2fe75 *man/pct1.Rd
