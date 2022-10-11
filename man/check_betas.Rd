@@ -8,13 +8,13 @@ check_betas(object, ...)
 }
 \arguments{
 \item{object}{An object of class \code{lm}.}
+
 \item{...}{Other arguments.}
 }
 \value{
 \code{check_betas} returns a \code{data.frame} containing:
-\item{model_index}{model number}
-\item{predictor}{predictor}
-\item{beta_coef}{coefficient for the predictor}
+
+\item{x}{model}
 }
 \description{
 Returns the coefficients for each variable from each model.
@@ -24,7 +24,5 @@ model <- lm(real_gdp~imp+exp+usdkzt+eurkzt, data = macroKZ)
 check_betas(model)
 }
 \references{
-Hebbali, Aravind. Published 2020-02-10. olssr package
+Hebbali, Aravind. Published 2020-02-10. olsrr package
 }
-
-

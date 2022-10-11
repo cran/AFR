@@ -13,9 +13,6 @@ dec_plot(model, dataset, print_plot = TRUE)
 
 \item{print_plot}{logical}
 }
-\value{
-A plot that shows decomposition of the model.
-}
 \description{
 The function depicts decomposition of regressors as a stacked barplot
 }

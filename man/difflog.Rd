@@ -13,9 +13,10 @@ difflog(x, lag = 1, difference = 1)
 
 \item{difference}{difference between x items}
 }
-\value{
-A length shorter than the original length. A returned value is a numerical.
-}
 \description{
 Difference of logarithms is finding the difference between two consecutive logarithm values of a time-series
+}
+\examples{
+data (macroKZ)
+new<-pct1(macroKZ)
 }

@@ -9,9 +9,10 @@ checkdata(x)
 \arguments{
 \item{x}{is a data frame}
 }
-\value{
-A matrix of logical and numerical values for the dataset.
-}
 \description{
 Preliminary check of data frame for missing values, wrong format, outliers.
+}
+\examples{
+data(macroKZ)
+checkdata(macroKZ)
 }

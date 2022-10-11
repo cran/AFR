@@ -13,9 +13,10 @@ corsel(x, thrs, num)
 
 \item{num}{logical}
 }
-\value{
-A matrix of numerical and logical values of correlation between variables.
-}
 \description{
 multicollinearity is the occurence of high interrelations among two or more independent variables in a multiple regression.
+}
+\examples{
+data(macroKZ)
+corsel(macroKZ,num=FALSE,thrs=0.65)
 }

@@ -5,6 +5,9 @@
 #' @param thrs threshold set to calculate correlation above
 #' @param num logical
 #' @import stats
+#' @examples
+#' data(macroKZ)
+#' corsel(macroKZ,num=FALSE,thrs=0.65)
 #' @rdname corsel
 #' @export
 
@@ -24,7 +27,7 @@ corsel<-
     if (num==FALSE)
       print(c_Rank)
     else
-      print(c)
+      print(round(c, digits=3))
 }
 
     #for (c in 1:ncol(c_Rank)) {

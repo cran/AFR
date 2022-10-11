@@ -9,9 +9,10 @@ pct1(x)
 \arguments{
 \item{x}{time-series vector(s)}
 }
-\value{
-A vector of length shorter than the original vector. Returned value is a numeric.
-}
 \description{
 Percent change is a change between two consecutive terms, %
+}
+\examples{
+data (macroKZ)
+new<-pct1(macroKZ)
 }

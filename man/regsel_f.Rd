@@ -2,7 +2,6 @@
 % Please edit documentation in R/regsel_f.R
 \name{regsel_f}
 \alias{regsel_f}
-\alias{print.regsel_f}
 \alias{plot.regsel_f}
 \title{Regressors selection}
 \usage{
@@ -14,10 +13,7 @@ regsel_f(
   details = FALSE,
   ...
 )
-
-\method{print}{regsel_f}(x, ...)
-
-\method{plot}{regsel_f}(x, print_plot = TRUE, ...)
+\method{plot}{regsel_f}(x, model = NA, print_plot = TRUE, ...)
 }
 \arguments{
 \item{model}{is a linear regression model}
@@ -38,22 +34,12 @@ each step.}
 
 \item{print_plot}{logical; if \code{TRUE}, prints the plot else returns a plot object.}
 }
-\value{
-An object containing the following components:
-\item{model}{final model; an object of class \code{lm}}
-\item{steps}{number of steps}
-\item{predictors}{variables added to the model}
-\item{rsquare}{coefficient of determination}
-\item{aic}{akaike information criteria}
-\item{sbc}{bayesian information criteria}
-\item{sbic}{sawa's bayesian information criteria}
-\item{adjr}{adjusted r-square}
-\item{rmse}{root mean square error}
-\item{mallows_cp}{mallow's Cp}
-\item{indvar}{predictors}
-}
 \description{
 The function allows to choose regressors based on multiple criteria as {AIC}, {RMSE} etc
+}
+\examples{
+model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
+regsel_f(model)
 }
 \references{
 Hebbali, Aravind. Published 2020-02-10. olssr package

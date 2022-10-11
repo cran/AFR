@@ -4,6 +4,10 @@
 #' @param x time-series vector
 #' @param k the lag order to calculate the test statistic.
 #' @import stats
+#' @importFrom cli console_width
+#' @examples
+#' data(macroKZ)
+#' adf(macroKZ)
 #' @references Trapletti, A., Augmented Dickey-Fuller Test
 #' Trapletti, A., KPSS Test for Stationarity
 #' @export
@@ -51,18 +55,28 @@ adf<-
                                                               i], n, rule = 2)$y
     interpol <- approx(tableipl, tablep, STAT, rule = 2)$y
     PVAL<-interpol
-    message1<-"non-stationary"
-    message2<-"stationary"
-    if (PVAL>=0.05)
-      alternative<-message1
+
+    #print
+    a <- c("Dickey-Fuller", "p-value")
+    b <- c(round(STAT, 3), round(PVAL,3))
+    w1 <- max(nchar(a))
+    w2 <- max(nchar(b))
+    w3 <- console_width()
+    w <- sum(w1, w2, 7)
+    n <- length(b)
+
+
+    cat(format(as.character("Augmented Dickey-Fuller test"), width=w3, justify="centre"), "\n")
+    if (PVAL>=0.1)
+      cat(paste("The result is non-stationary.", "\n"))
     else
-      alternative<-message2
-    PARAMETER <- k - 1
+      cat(paste("The result is stationary.",  "\n"))
 
-    result <- list(p.value = PVAL,
-                   result   = alternative)
-
-    return(result)
+    cat(rep("-", w), sep = "", "\n")
+    for (i in seq(n)) {
+      cat(fl(a[i], w1),fsp(),fsp(), fg(b[i], w2), "\n")
+    }
+    cat(rep("-", w), sep = "", "\n")
 
 }
 
@@ -92,6 +106,4 @@ adf<-
 
     #return(result)
   #}
-
-
 

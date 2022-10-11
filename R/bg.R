@@ -9,6 +9,10 @@
 #' @param fill starting values for the lagged residuals in the auxiliary regression. By default 0 but can also be set to NA.
 #' @references Mitchel, D. and Zeileis, A. Published 2021-11-07. lmtest package
 #' @import stats
+#' @importFrom cli console_width
+#' @examples
+#' model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
+#' bg(model)
 #' @export
 
 bg<-
@@ -72,22 +76,29 @@ bg<-
       names(df) <- c("df1", "df2")
       p.val <- pf(bg, df1 = df[1], df2 = df[2], lower.tail = FALSE)
     })
-    message1<-"Residuals are not autocorrelated"
-    message2<-"Residuals are autocorrelated"
+
+    #print
+    a <- c("LM test", "p-value")
+    b <- c(round(bg, 3), round(p.val,3))
+    w1 <- max(nchar(a))
+    w2 <- max(nchar(b))
+    w3 <- console_width()
+    w <- sum(w1, w2, 7)
+    n <- length(b)
+
+    alternative <-NULL
+    cat(format(as.character(paste("Breusch-Godfrey test for serial correlation of order up to", max(order))), width=w3, justify="centre"), "\n\n")
 
     if (p.val>=0.05)
-      alternative<-message1
+      cat(paste("Residuals are not autocorrelated.", "\n"))
     else
-      alternative<-message2
-    cat(alternative)
+      cat(paste("Residuals are autocorrelated.", "\n"))
 
-    names(bg) <- "LM test"
-    RVAL <- list(statistic = bg, method = paste("Breusch-Godfrey test for serial correlation of order up to",
-                                                max(order)), p.value = p.val, result=alternative)
-    class(RVAL) <- c("bgtest", "htest")
-
-    return(RVAL)
+    cat(rep("-", w), sep = "", "\n")
+    for (i in seq(n)) {
+      cat(fl(a[i], w1),fsp(),fsp(), fg(b[i], w2), "\n")
+    }
+    cat(rep("-", w), sep = "", "\n")
 
   }
-
 

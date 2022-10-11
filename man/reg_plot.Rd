@@ -11,14 +11,11 @@ reg_plot(model, dataset)
 
 \item{dataset}{A dataset based on which model was built.}
 }
-\value{
-A plot that shows predictive and actual values.
-}
 \description{
 The function depicts forecast and actual data.
 }
 \examples{
-model <- lm(real_gdp ~ usdkzt + eurkzt + imp+exp, data = macroKZ)
+model <- lm(real_gdp ~ usdkzt + eurkzt + imp + exp, data = macroKZ)
 reg_plot(model, macroKZ)
 }
 \author{

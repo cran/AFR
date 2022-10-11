@@ -5,11 +5,12 @@
 #' @param model An object of class \code{lm}.
 #' @param dataset A dataset based on which model was built.
 #' @examples
-#' model <- lm(real_gdp ~ usdkzt + eurkzt + imp+exp, data = macroKZ)
+#' model <- lm(real_gdp ~ usdkzt + eurkzt + imp + exp, data = macroKZ)
 #' reg_plot(model, macroKZ)
 #' @author The Agency of the Republic of Kazakhstan for Regulation and Development of Financial Market (AFR)
 #' @importFrom forecast auto.arima
 #' @importFrom forecast forecast
+#' @importFrom graphics legend lines
 #' @export
 #'
 

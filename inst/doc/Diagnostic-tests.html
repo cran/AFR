@@ -333,7 +333,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <h2>Introduction</h2>
 <p>For the analysis of multiple linear regression models statisticians apply Gauss-Markov theorem for the estimators of the regression to be best linear unbiased estimators (BLUE). The theorem includes 5 assumptions about heteroskedasticity, linearity, exogeneity, random sampling and non-collinearity.</p>
 <p><strong>AFR</strong> provides:</p>
-<p>2 tests for detecting heteroscedasticity:</p>
+<p>2 tests for detecting heteroskedasticity:</p>
 <ul>
 <li>Breusch-Pagan Test</li>
 <li>Goldfeld-Quandt Test</li>
@@ -359,24 +359,32 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p>Breusch Pagan Test was introduced by Trevor Breusch and Adrian Pagan in 1979. It is used to test for heteroskedasticity in a linear regression model and assumes that the error terms are normally distributed. It tests whether the variance of the errors from a regression is dependent on the values of the independent variables. Null hypothesis states that error variances are constant.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>model &lt;-<span class="st"> </span><span class="kw">lm</span>(real_gdp <span class="op">~</span><span class="st"> </span>imp <span class="op">+</span><span class="st"> </span>exp <span class="op">+</span><span class="st"> </span>poil <span class="op">+</span><span class="st"> </span>eurkzt,macroKZ)</span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="kw">bp</span>(model)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#&gt; Homoskedasticity presents. Please use other tests additionally.In case of opposite results study the case further.</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#&gt; </span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#&gt;  studentized Breusch-Pagan test</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#&gt; </span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt; data:  </span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="co">#&gt; BP = 7.1366, p-value = 0.1288</span></span></code></pre></div>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co">#&gt;                                Breusch-Pagan test                                </span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="co">#&gt; Homoskedasticity presents.</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co">#&gt; Please use other tests additionally.</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="co">#&gt; In case of opposite results study the case further.</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co">#&gt; </span></span>
+<span id="cb1-8"><a href="#cb1-8"></a><span class="co">#&gt; -------------------</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="co">#&gt; BP            7.302 </span></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co">#&gt; p-value       0.121 </span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">#&gt; -------------------</span></span></code></pre></div>
 </div>
 <div id="goldfeld-quandt-test" class="section level4">
 <h4>Goldfeld-Quandt Test</h4>
 <p>The Goldfeld Quandt Test is a test used in regression analysis to test for homoscedasticity. It compares variances of two subgroups; one set of high values and one set of low values. If the variances differ, the test rejects the null hypothesis that the variances of the errors are not constant.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>model &lt;-<span class="st"> </span><span class="kw">lm</span>(real_gdp <span class="op">~</span><span class="st"> </span>imp <span class="op">+</span><span class="st"> </span>exp<span class="op">+</span>poil<span class="op">+</span>eurkzt, macroKZ)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="kw">gq</span>(model)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt; Heteroskedasticity presents. Please use others tests additionally.In case of opposite results study the case further.</span></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt; </span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt;  Goldfeld-Quandt test</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; </span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; data:  </span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; GQ = 2.4832, p-value = 0.04853</span></span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="co">#&gt;                               Goldfeld-Quandt test                               </span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt; Homoskedasticity presents.</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; Please use other tests additionally.</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; In case of opposite results study the case further.</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; </span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; -------------------</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; GQ            1.903 </span></span>
+<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt; p-value       0.079 </span></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt; df1              20 </span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt; df2              20 </span></span>
+<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt; -------------------</span></span></code></pre></div>
 </div>
 </div>
 <div id="non-collinearity" class="section level3">
@@ -387,10 +395,15 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p>The VIF of the linear regression is defined as VIF = 1/T. With VIF &gt; 5 there is an indication that multicollinearity may be present; with VIF &gt; 10 there is certainly multicollinearity among the variables.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>model &lt;-<span class="st"> </span><span class="kw">lm</span>(real_gdp <span class="op">~</span><span class="st"> </span>imp <span class="op">+</span><span class="st"> </span>exp <span class="op">+</span><span class="st"> </span>poil <span class="op">+</span><span class="st"> </span>eurkzt,macroKZ)</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="kw">vif_reg</span>(model)</span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt;       imp       exp      poil    eurkzt </span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt;  2.210820 11.889882 12.805468  1.839555 </span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; This value 11.889882363203 exceeds acceptable threshold</span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; This value 12.8054676116014 exceeds acceptable threshold</span></span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt;                            Variance Inflation Factor                             </span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; </span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; If statistics exceeds 5, please be aware of multicollinearity.</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; </span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt;    imp    exp   poil eurkzt </span></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co">#&gt;  2.101 11.851 11.814  1.579 </span></span>
+<span id="cb3-9"><a href="#cb3-9"></a><span class="co">#&gt; </span></span>
+<span id="cb3-10"><a href="#cb3-10"></a><span class="co">#&gt; This value 11.851 exceeds acceptable threshold.</span></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co">#&gt; This value 11.814 exceeds acceptable threshold.</span></span></code></pre></div>
 </div>
 <div id="durbin-watson-test" class="section level4">
 <h4>Durbin-Watson Test</h4>
@@ -401,7 +414,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb4-4"><a href="#cb4-4"></a><span class="co">#&gt;  Durbin-Watson test</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a><span class="co">#&gt; </span></span>
 <span id="cb4-6"><a href="#cb4-6"></a><span class="co">#&gt; data:  model</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt; DW = 2.2522, p-value = 0.6468</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a><span class="co">#&gt; DW = 1.9484, p-value = 0.2989</span></span>
 <span id="cb4-8"><a href="#cb4-8"></a><span class="co">#&gt; alternative hypothesis: true autocorrelation is greater than 0</span></span></code></pre></div>
 </div>
 <div id="breusch-godfrey-test" class="section level4">
@@ -409,28 +422,21 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p>Alternatively, there is Breusch-Godfrey Test for autocorrelation check.It tests for the presence of serial correlation that has not been included in a proposed model structure and which, if present, would mean that incorrect conclusions would be drawn from other tests or that sub-optimal estimates of model parameters would be obtained.Null hypothesis states that there is no autocorrelation.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>model &lt;-<span class="st"> </span><span class="kw">lm</span>(real_gdp <span class="op">~</span><span class="st"> </span>imp <span class="op">+</span><span class="st"> </span>exp <span class="op">+</span><span class="st"> </span>poil <span class="op">+</span><span class="st"> </span>eurkzt,macroKZ)</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="kw">bg</span>(model)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt; Residuals are not autocorrelated</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt;           Breusch-Godfrey test for serial correlation of order up to 1           </span></span>
 <span id="cb5-4"><a href="#cb5-4"></a><span class="co">#&gt; </span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt;  Breusch-Godfrey test for serial correlation of order up to 1</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; </span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; data:  </span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; LM test = 1.8218, p-value = 0.1771</span></span></code></pre></div>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co">#&gt; Residuals are not autocorrelated. </span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="co">#&gt; -------------------</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt; LM test       0.022 </span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt; p-value       0.882 </span></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co">#&gt; -------------------</span></span></code></pre></div>
 </div>
 </div>
 <div id="normality" class="section level3">
 <h3>Normality</h3>
 <p>Normality refers to a specific statistical distribution called a normal distribution, or sometimes the Gaussian distribution or bell-shaped curve. The normal distribution is a symmetrical continuous distribution defined by the mean and standard deviation of the data.</p>
-<p>In AFR package 4 normality tests are compiled in one <em>ols_test_normality</em> function from <em>olsrr</em> package.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>model &lt;-<span class="st"> </span><span class="kw">lm</span>(real_gdp <span class="op">~</span><span class="st"> </span>imp <span class="op">+</span><span class="st"> </span>exp <span class="op">+</span><span class="st"> </span>poil <span class="op">+</span><span class="st"> </span>eurkzt,macroKZ)</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="kw">ols_test_normality</span>(model)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="co">#&gt; -----------------------------------------------</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a><span class="co">#&gt;        Test             Statistic       pvalue  </span></span>
-<span id="cb6-5"><a href="#cb6-5"></a><span class="co">#&gt; -----------------------------------------------</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a><span class="co">#&gt; Shapiro-Wilk              0.9607         0.1886 </span></span>
-<span id="cb6-7"><a href="#cb6-7"></a><span class="co">#&gt; Kolmogorov-Smirnov        0.1388         0.4037 </span></span>
-<span id="cb6-8"><a href="#cb6-8"></a><span class="co">#&gt; Cramer-von Mises          3.7692         0.0000 </span></span>
-<span id="cb6-9"><a href="#cb6-9"></a><span class="co">#&gt; Anderson-Darling          0.5918         0.1167 </span></span>
-<span id="cb6-10"><a href="#cb6-10"></a><span class="co">#&gt; -----------------------------------------------</span></span></code></pre></div>
+<p>In AFR package 4 normality tests are compiled in one <em>norm_test</em> function referred to <em>olsrr</em> package.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co">#model &lt;- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#ols_test_normality(model)</span></span></code></pre></div>
 <div id="shapiro-wilk-statistic" class="section level4">
 <h4>Shapiro-Wilk statistic</h4>
 <p>The null-hypothesis of this test is that the population is normally distributed. Thus, if the p value is less than the chosen alpha level, then the null hypothesis is rejected and there is evidence that the data tested are not normally distributed. On the other hand, if the p value is greater than the chosen alpha level, then the null hypothesis (that the data came from a normally distributed population) can not be rejected.</p>

@@ -2,7 +2,7 @@ Package: AFR
 Type: Package
 Title: Toolkit for Regression Analysis of Kazakhstan Banking Sector
         Data
-Version: 0.1.0
+Version: 0.2.0
 Copyright: The Agency of the Republic of Kazakhstan for Regulation and
         Development of Financial Market (ARDFM)
 Authors@R: c(person("Timur", "Abilkassymov", role = "aut"),
@@ -20,13 +20,14 @@ License: GPL-2
 Depends: R (>= 3.5.0)
 Imports: car, forecast, zoo, regclass, olsrr, stats, lmtest, graphics,
         tseries, nlme, ggplot2, gridExtra, utils, rlang, xts, writexl,
-        mFilter
+        mFilter,nortest, goftest, cli
 Suggests: knitr, rmarkdown, roxygen2
+SystemRequirements: C++
 Repository: CRAN
 Encoding: UTF-8
 VignetteBuilder: knitr
 LazyData: true
 RoxygenNote: 7.1.2
 NeedsCompilation: no
-Packaged: 2022-03-21 12:20:58 UTC; aluamakhmetova
-Date/Publication: 2022-03-21 19:00:05 UTC
+Packaged: 2022-10-11 12:14:37 UTC; aluamakhmetova
+Date/Publication: 2022-10-11 12:32:33 UTC

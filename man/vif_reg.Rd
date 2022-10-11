@@ -9,11 +9,12 @@ vif_reg(model)
 \arguments{
 \item{model}{is a linear regression model}
 }
-\value{
-A data frame with columns for variable and VIF result. Textual result for VIF test presents whether variables pass the test or not.
-}
 \description{
 Calculates the variation inflation factors of all predictors in regression models
+}
+\examples{
+model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
+vif_reg(model)
 }
 \references{
 Petrie, Adam. Published 2020-02-21. regclass package

@@ -6,6 +6,10 @@
 #' @import stats
 #' @importFrom tseries na.remove
 #' @importFrom utils data
+#' @importFrom cli console_width
+#' @examples
+#' data(macroKZ)
+#' checkdata(macroKZ)
 #' @export
 
 #must be without N/A to run
@@ -45,10 +49,6 @@ checkdata<-
       outlier_total = outlier_total+outlier[[i]]
     }
 
-    result <- list("Missing_items" = miss,
-                   "Numeric_format"   = number,
-                   "Outliers"=outlier)
-
     notnum_total=0
     for (i in 1:length(number)){
       if (!isTRUE(i))
@@ -56,13 +56,36 @@ checkdata<-
       notnum_total = notnum_total+number[[i]]
     }
 
-    cat(paste("There are", missing_total, "missing items in the dataset"),
-        paste("There are", notnum_total, "items in non-numeric format in the dataset"),
-        paste("There are", outlier_total, "outliers in the dataset"), sep="\n")
+    #print
 
+    w <- console_width()
+    w1 <- max(nchar(macroKZ))
+    n <- ncol(macroKZ)
 
-    return(result)
+    cat(paste("There are", missing_total, "missing items in the dataset."),
+        paste("There are", notnum_total, "items in non-numeric format in the dataset."),
+        paste("There are", outlier_total, "outliers in the dataset."), sep="\n")
 
+    #missing_items
+    cat(rep("-", w), sep = "", "\n")
+    cat(fc("Missing items", w), "\n")
+    cat(rep("-", w), sep = "", "\n")
+    print(list(miss))
+    cat(rep("-", w), sep = "", "\n\n")
+
+    #numeric_format
+    cat(rep("-", w), sep = "", "\n")
+    cat(fc("Numeric format", w), "\n")
+    cat(rep("-", w), sep = "", "\n")
+    print(list(number))
+    cat(rep("-", w), sep = "", "\n\n")
+
+    #outliers
+    cat(rep("-", w), sep = "", "\n")
+    cat(fc("Outliers", w), "\n")
+    cat(rep("-", w), sep = "", "\n")
+    print(list(outlier))
+    cat(rep("-", w), sep = "", "\n\n")
   }
 
 

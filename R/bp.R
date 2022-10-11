@@ -6,6 +6,10 @@
 #' @param studentize logical. If set to TRUE Koenker's studentized version of the test statistic will be used.
 #' @param data an optional data frame containing the variables in the model
 #' @import stats
+#' @importFrom cli console_width
+#' @examples
+#' model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
+#' bp(model)
 #' @references Torsten, H., Zeileis, A., Farebrother, Richard W., Cummins, C., Millo, G., Mitchell, D., lmtest package
 #' Wang, B., 2014, bstats package
 #' @export
@@ -57,28 +61,31 @@ bp<-function (model, varformula = NULL, studentize = TRUE, data = list())
       bp <- 0.5 * sum(aux$fitted.values^2)
       method <- "Breusch-Pagan test"
     }
-    message1<-"Homoskedasticity presents. Please use other tests additionally.In case of opposite results study the case further."
-    message2<-"Heteroskedasticity presents. Please use others tests additionally.In case of opposite results study the case further."
-    names(bp) <- "BP"
+    #message1<-cat("Homoskedasticity presents.", "\n", "Please use other tests additionally.In case of opposite results study the case further.")
+    #message2<-cat("Heteroskedasticity presents.", "\n", "Please use others tests additionally.In case of opposite results study the case further.")
     df <- c(df = aux$rank - 1)
     PVAL<-pchisq(bp, df, lower.tail = FALSE)
 
+    #print
+    a <- c("BP", "p-value")
+    b <- c(round(bp, 3), round(PVAL,3))
+    w1 <- max(nchar(a))
+    w2 <- max(nchar(b))
+    w3 <- console_width()
+    w <- sum(w1, w2, 7)
+    n <- length(b)
+
+
+    cat(format(as.character("Breusch-Pagan test"), width=w3, justify="centre"), "\n")
     if (PVAL>=0.05)
-      alternative<-message1
+      cat(paste("Homoskedasticity presents.", "Please use other tests additionally.", "In case of opposite results study the case further.", sep="\n", "\n"))
     else
-      alternative<-message2
-    cat(alternative)
+      cat(paste("Heteroskedasticity presents.", "Please use other tests additionally.", "In case of opposite results study the case further.", sep="\n", "\n"))
 
-    RVAL <- list(statistic = bp, method = method,
-                 p.value = PVAL)
-    class(RVAL) <- "htest"
-    return(RVAL)
-
-    if (PVAL>=0.05)
-      alternative<-message1
-    else
-      alternative<-message2
-    #cat(alternative)
-
+    cat(rep("-", w), sep = "", "\n")
+    for (i in seq(n)) {
+      cat(fl(a[i], w1),fsp(),fsp(), fg(b[i], w2), "\n")
+    }
+    cat(rep("-", w), sep = "", "\n")
 }
 

@@ -15,14 +15,12 @@ bp(model, varformula = NULL, studentize = TRUE, data = list())
 
 \item{data}{an optional data frame containing the variables in the model}
 }
-\value{
-Textual result of the test.
-List of values:
-\item{BP}{test statistics}
-\item{p-value}{p-value of the BP test}
-}
 \description{
 Breusch-Pagan test is used to test against heteroskedasticity of a time-series
+}
+\examples{
+model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
+bp(model)
 }
 \references{
 Torsten, H., Zeileis, A., Farebrother, Richard W., Cummins, C., Millo, G., Mitchell, D., lmtest package

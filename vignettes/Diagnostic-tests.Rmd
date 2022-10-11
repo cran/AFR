@@ -29,7 +29,7 @@ For the analysis of multiple linear regression models statisticians apply Gauss-
 
 **AFR** provides:
 
-2 tests for detecting heteroscedasticity:
+2 tests for detecting heteroskedasticity:
 
 - Breusch-Pagan Test
 - Goldfeld-Quandt Test
@@ -115,11 +115,11 @@ bg(model)
 
 Normality refers to a specific statistical distribution called a normal distribution, or sometimes the Gaussian distribution or bell-shaped curve. The normal distribution is a symmetrical continuous distribution defined by the mean and standard deviation of the data. 
 
-In AFR package 4 normality tests are compiled in one *ols_test_normality* function from *olsrr* package.
+In AFR package 4 normality tests are compiled in one *norm_test* function referred to *olsrr* package.
 
 ```{r, echo=TRUE}
-model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
-ols_test_normality(model)
+#model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
+#ols_test_normality(model)
 ```
 
 

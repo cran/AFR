@@ -9,9 +9,10 @@ opt_size(model)
 \arguments{
 \item{model}{is a linear regression model a class \code{lm}.}
 }
-\value{
-A numerical value of the number of models.
-}
 \description{
 Estimates number of models generated from given number of regressors {x}
+}
+\examples{
+model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
+opt_size(model)
 }

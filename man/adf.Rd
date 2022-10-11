@@ -11,13 +11,12 @@ adf(x, k = trunc((length(x) - 1)^(1/3)))
 
 \item{k}{the lag order to calculate the test statistic.}
 }
-\value{
-A list of values:
-\item{p.value}{p=value of the test}
-\item{result}{textual result of whether parameter is stationary or not}
-}
 \description{
 ADF test are used to test stationarity of a time-series data
+}
+\examples{
+data(macroKZ)
+adf(macroKZ)
 }
 \references{
 Trapletti, A., Augmented Dickey-Fuller Test

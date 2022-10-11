@@ -11,6 +11,9 @@
 #' @param ... other arguments
 #' @param progress Logical; if TRUE, will display variable selection progress.
 #' @param metric statistical metrics used to estimate the best model
+#' @examples
+#' model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
+#' regsel_f(model)
 #' @references Hebbali, Aravind. Published 2020-02-10. olssr package
 #' @import stats
 #' @import olsrr
@@ -212,14 +215,10 @@ regsel_f<-function(model, pval = 0.3, metric="adjr"&"aic",progress = FALSE, deta
   return(out)
 }
 
-
 #' @export
-#' @rdname regsel_f
+#' @noRd
 #'
 #'
-
-globalVariables(c("print_step_forward"))
-
 print.regsel_f <- function(x, ...) {
   if (x$steps > 0) {
     print_step_forward(x)
@@ -229,13 +228,10 @@ print.regsel_f <- function(x, ...) {
 }
 
 #' @importFrom gridExtra marrangeGrob
-#' @importFrom olsrr plot_stepwise
 #' @export
-#' @rdname regsel_f
+#' @noRd
 #'
-globalVariables(c("plot_stepwise"))
-
-plot.regsel_f <- function(x, print_plot = TRUE, ...) {
+plot.regsel_f <- function(x, model=NA, print_plot = TRUE, ...) {
 
   a <- NULL
   b <- NULL

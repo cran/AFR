@@ -3,6 +3,9 @@
 #' Estimates number of models generated from given number of regressors {x}
 #' @usage opt_size(model)
 #' @param model is a linear regression model a class \code{lm}.
+#' @examples
+#' model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
+#' opt_size(model)
 #' @importFrom nlme splitFormula
 #' @export
 

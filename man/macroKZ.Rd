@@ -4,6 +4,9 @@
 \name{macroKZ}
 \alias{macroKZ}
 \title{macroKZ dataset}
+\format{
+A time series data frame of 50 quarterly observations of 49 macroeconomic and 11 financial parameters for 2010-2022 period.
+}
 \source{
 Bureau of National statistics, Agency for Strategic planning and reforms of the Republic of Kazakhstan
 }
@@ -11,7 +14,7 @@ Bureau of National statistics, Agency for Strategic planning and reforms of the 
 macroKZ
 }
 \description{
-A time series data frame of 48 quarterly observations of 50 macroeconomic and 10 financial parameters for 2010-2021 period.
+macroKZ dataset
 }
 \references{
 The Agency of the Republic of Kazakhstan for Regulation and Development of Financial Market

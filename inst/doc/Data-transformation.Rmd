@@ -1,8 +1,8 @@
 ---
-title: "Data-tranformation"
+title: "Data-transformation"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Data-tranformation}
+  %\VignetteIndexEntry{Data-transformation}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,7 +22,7 @@ library(tseries)
 
 ## Introduction
 
-For the unbiased statistical analysis of data transformation is necessary to transform data for fit model assumptions. *AFR* package has default time-series dataset *macroKZ* of macroeconomic parameters for 2010-2021 period. Dataset is raw, not ordered, with missing values and etc.
+For the unbiased statistical analysis of data transformation is necessary to transform data for fit model assumptions. *AFR* package has default time-series dataset *macroKZ* of macroeconomic parameters for 2010-2022 period. Dataset is raw, not ordered, with missing values and etc.
 
 **AFR** recommends:
 

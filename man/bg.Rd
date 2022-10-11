@@ -26,14 +26,12 @@ bg(
 
 \item{fill}{starting values for the lagged residuals in the auxiliary regression. By default 0 but can also be set to NA.}
 }
-\value{
-Textual result of the test.
-List of values:
-\item{LM test}{test statistics}
-\item{p-value}{p-value of the BG test}
-}
 \description{
 BG test is used to test for autocorrelation in the errors of a regression model
+}
+\examples{
+model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
+bg(model)
 }
 \references{
 Mitchel, D. and Zeileis, A. Published 2021-11-07. lmtest package

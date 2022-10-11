@@ -12,7 +12,7 @@
 #' @examples
 #' model <- lm(real_gdp~imp+exp+usdkzt+eurkzt, data = macroKZ)
 #' check_betas(model)
-#' @references Hebbali, Aravind. Published 2020-02-10. olssr package
+#' @references Hebbali, Aravind. Published 2020-02-10. olsrr package
 #' @import stats
 #' @export
 #'
@@ -62,6 +62,7 @@ check_betas <- function(object, ...) {
 #' Internal function for all possible regression.
 #'
 #' @param model An object of class \code{lm}.
+#' @noRd
 
 
 allpos_helper <- function(model) {
@@ -142,11 +143,26 @@ allpos_helper <- function(model) {
   return(result)
 }
 
+#' Coefficient names
+#'
+#' Returns the names of the coefficients including interaction variables.
+#'
+#' @param model An object of class \code{lm}.
+#' @noRd
+#'
 
 coeff_names <- function(model) {
   terms <- NULL
   colnames(attr(model$terms, which = "factor"))
 }
+
+#' Model data columns
+#'
+#' Returns the names of the columns in the data used in the model.
+#'
+#' @param model An object of class \cdoe{lm}.
+#' @noRd
+#'
 
 model_colnames <- function(model) {
   names(model.frame(model))
@@ -158,7 +174,9 @@ model_colnames <- function(model) {
 #'
 #' @param predicts Name of the predictors in the model.
 #' @param gap A numeric vector.
+#' @noRd
 #'
+
 coeff_length <- function(predicts, gap) {
   sum(nchar(predicts)) + gap
 }

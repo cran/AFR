@@ -9,9 +9,10 @@ pct4(x)
 \arguments{
 \item{x}{time-series vector(s)}
 }
-\value{
-A vector of length shorter than the original vector. Returned value is a numeric.
-}
 \description{
 Percent change is a change between a term and its lagged value for prior period, %
+}
+\examples{
+data (macroKZ)
+new<-pct4(macroKZ)
 }

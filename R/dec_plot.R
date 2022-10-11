@@ -18,8 +18,6 @@
 dec_plot <- function(model, dataset,print_plot = TRUE) {
 
   m<-matrix(1)
-  if (!is.ts(dataset))
-    stop("please insert dataframe used to build a model")
   model$call$formula<-as.formula(model)
   s<-splitFormula(model$call$formula, sep="+")
   s<-gsub("~",replacement="",x=s,ignore.case = TRUE)
@@ -57,10 +55,13 @@ dec_plot <- function(model, dataset,print_plot = TRUE) {
   p <-
     ggplot(new, aes(fill=variable, y=t,x=date))+
     geom_bar(position="stack", stat="identity")+
+    scale_fill_brewer(palette="Paired")+
     guides(x = guide_axis(angle = 90))+
     #geom_line(data=d, aes(x=date,y=value, group=1))+
     xlab("period") + ylab("Value") +
-    ggtitle("Decomposition plot")
+    ggtitle("Decomposition plot")+
+    theme(plot.title=element_text(face="bold", size=18,hjust=0.5))+
+    theme(axis.title=element_text(face="bold"))
 
 
   if (print_plot) {

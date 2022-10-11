@@ -10,11 +10,9 @@
 #' \item{bg}{Breusch-Godfrey statistic}
 #' \item{dw}{Durbin-Watson statistic}
 #' \item{gq}{Godfrey-Quandt statistic}
-
 #' @examples
-#' model <- lm(real_gdp~imp+exp+poil+eurkzt+usdkzt, macroKZ)
+#' model <- lm(real_gdp~ imp + exp + poil + eurkzt + usdkzt, macroKZ)
 #' reg_test(model)
-
 #' @importFrom lmtest bgtest dwtest
 #' @importFrom lmtest bptest gqtest
 #'

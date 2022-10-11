@@ -32,6 +32,6 @@ model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
 bg(model)
 
 ## ---- echo=TRUE---------------------------------------------------------------
-model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
-ols_test_normality(model)
+#model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
+#ols_test_normality(model)
 
