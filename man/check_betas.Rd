@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_betas.R
 \name{check_betas}
 \alias{check_betas}
-\title{All possible regression variable coefficients}
+\title{All possible regression variable coefficients.}
 \usage{
 check_betas(object, ...)
 }

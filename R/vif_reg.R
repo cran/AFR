@@ -3,6 +3,7 @@
 #' Calculates the variation inflation factors of all predictors in regression models
 #' @param model is a linear regression model
 #' @examples
+#' data(macroKZ)
 #' model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
 #' vif_reg(model)
 #' @importFrom cli console_width

@@ -1,4 +1,4 @@
-#' All possible regression variable coefficients
+#' All possible regression variable coefficients.
 #'
 #' Returns the coefficients for each variable from each model.
 #'

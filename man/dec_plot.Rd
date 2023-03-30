@@ -17,6 +17,7 @@ dec_plot(model, dataset, print_plot = TRUE)
 The function depicts decomposition of regressors as a stacked barplot
 }
 \examples{
+data(macroKZ)
 model <- lm(real_gdp ~ usdkzt + eurkzt + imp+exp, data = macroKZ)
 dec_plot(model, macroKZ)
 }

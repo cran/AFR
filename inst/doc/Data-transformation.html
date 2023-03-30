@@ -490,29 +490,20 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </div>
 <div id="step-2" class="section level3">
 <h3>Step 2</h3>
-<p>As dataset is preliminary cleaned, time-series data needs to be stationary. Stationarity is needed for the properties to be independent of time periods, i.e. mean, variance etc are constant over time. In R stationarity can be checked by Augmented-Dickey Fuller (<em>adf</em>) and/or Kwiatkowski-Phillips-Schmidt-Shin (<em>kpss.test</em>) tests.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">adf</span>(macroKZ)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">#&gt;                           Augmented Dickey-Fuller test                           </span></span>
-<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#&gt; The result is stationary. </span></span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="co">#&gt; --------------------------</span></span>
-<span id="cb3-5"><a href="#cb3-5"></a><span class="co">#&gt; Dickey-Fuller       -5.675 </span></span>
-<span id="cb3-6"><a href="#cb3-6"></a><span class="co">#&gt; p-value               0.01 </span></span>
-<span id="cb3-7"><a href="#cb3-7"></a><span class="co">#&gt; --------------------------</span></span></code></pre></div>
+<p>As dataset is preliminary cleaned, time-series data needs to be stationary. Stationarity is needed for the properties to be independent of time periods, i.e. mean, variance etc are constant over time. In R stationarity can be checked by Augmented-Dickey Fuller (<em>adf.test</em>) and/or Kwiatkowski-Phillips-Schmidt-Shin (<em>kpss.test</em>) tests.</p>
 <p>In more details, <em>macroKZ</em> can use <em>sapply</em> function to view which parameter is stationary or not.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">sapply</span>(macroKZ, adf)</span></code></pre></div>
 </div>
 <div id="step-3" class="section level3">
 <h3>Step 3</h3>
 <p>If dataset, as a whole, or individual parameters are non-stationary, it is recommended to apply transformation techniques to make data stationary. Most common transformation tools are differencing (first and second order), logarithming, difference of logarithms, detrending and etc. After transformation method(s) is applied, make sure that data is stationary.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>new&lt;-<span class="kw">log</span>(macroKZ)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">sapply</span>(new, adf)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>new&lt;-<span class="kw">log</span>(macroKZ)</span></code></pre></div>
 </div>
 <div id="step-4" class="section level3">
 <h3>Step 4</h3>
 <p>To build the best regression model regressors/independent variables need to be independent of each other. If this condition is violated, multicollinearity presents and regression estimators are biased. <em>AFR</em> package offers <em>corsel</em> function that estimates correlation between regressors in the dataset given a threshold (set by the user). The result can be presented numerically or logically (TRUE/FALSE).</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="kw">corsel</span>(macroKZ,<span class="dt">num=</span><span class="ot">FALSE</span>,<span class="dt">thrs=</span><span class="fl">0.65</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">corsel</span>(macroKZ,<span class="dt">num=</span><span class="ot">FALSE</span>,<span class="dt">thrs=</span><span class="fl">0.65</span>)</span></code></pre></div>
 <p>Once regressors are chosen, linear regression model can be built via <em>lm</em> function.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>model&lt;-<span class="kw">lm</span>(real_gdp<span class="op">~</span>imp<span class="op">+</span>exp<span class="op">+</span>usdkzt<span class="op">+</span>eurkzt, macroKZ)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>model&lt;-<span class="kw">lm</span>(real_gdp<span class="op">~</span>imp<span class="op">+</span>exp<span class="op">+</span>usdkzt<span class="op">+</span>eurkzt, macroKZ)</span></code></pre></div>
 </div>
 </div>
 

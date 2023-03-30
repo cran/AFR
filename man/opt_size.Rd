@@ -13,6 +13,7 @@ opt_size(model)
 Estimates number of models generated from given number of regressors {x}
 }
 \examples{
+data(macroKZ)
 model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
 opt_size(model)
 }

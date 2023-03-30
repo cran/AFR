@@ -2,7 +2,6 @@
 % Please edit documentation in R/regsel_f.R
 \name{regsel_f}
 \alias{regsel_f}
-\alias{plot.regsel_f}
 \title{Regressors selection}
 \usage{
 regsel_f(
@@ -13,7 +12,6 @@ regsel_f(
   details = FALSE,
   ...
 )
-\method{plot}{regsel_f}(x, model = NA, print_plot = TRUE, ...)
 }
 \arguments{
 \item{model}{is a linear regression model}
@@ -29,15 +27,12 @@ enter into the model}
 each step.}
 
 \item{...}{other arguments}
-
-\item{x}{An object.}
-
-\item{print_plot}{logical; if \code{TRUE}, prints the plot else returns a plot object.}
 }
 \description{
 The function allows to choose regressors based on multiple criteria as {AIC}, {RMSE} etc
 }
 \examples{
+data(macroKZ)
 model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
 regsel_f(model)
 }

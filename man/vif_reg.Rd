@@ -13,6 +13,7 @@ vif_reg(model)
 Calculates the variation inflation factors of all predictors in regression models
 }
 \examples{
+data(macroKZ)
 model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
 vif_reg(model)
 }

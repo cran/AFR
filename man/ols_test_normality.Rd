@@ -29,6 +29,7 @@ Test for normality
 Test for detecting violation of normality assumption.
 }
 \examples{
+data(macroKZ)
 model <- lm(real_gdp ~ imp + exp + usdkzt + poil, data = macroKZ)
 ols_test_normality(model)
 

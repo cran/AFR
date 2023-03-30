@@ -4,6 +4,7 @@
 #' @usage opt_size(model)
 #' @param model is a linear regression model a class \code{lm}.
 #' @examples
+#' data(macroKZ)
 #' model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
 #' opt_size(model)
 #' @importFrom nlme splitFormula

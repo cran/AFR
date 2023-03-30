@@ -129,3 +129,4 @@ print_norm_test <- function(data) {
   }
   cat(rep("-", w), sep = "", "\n")
 }
+

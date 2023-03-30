@@ -13,6 +13,7 @@
 #' \item{anderson}{anderson darling statistic}
 #'
 #' @examples
+#' data(macroKZ)
 #' model <- lm(real_gdp ~ imp + exp + usdkzt + poil, data = macroKZ)
 #' ols_test_normality(model)
 #'
@@ -41,6 +42,7 @@ ols_test_normality.default<- function(model, ...) {
 
   class(result) <- "ols_test_normality"
   return(result)
+
 }
 #' @export
 #' @rdname ols_test_normality

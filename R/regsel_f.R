@@ -6,12 +6,11 @@
 #'   enter into the model
 #' @param details Logical; if \code{TRUE}, will print the regression result at
 #'   each step.
-#' @param x An object.
-#' @param print_plot logical; if \code{TRUE}, prints the plot else returns a plot object.
 #' @param ... other arguments
 #' @param progress Logical; if TRUE, will display variable selection progress.
 #' @param metric statistical metrics used to estimate the best model
 #' @examples
+#' data(macroKZ)
 #' model <- lm(real_gdp ~ imp + exp + poil + eurkzt + tonia_rate, data = macroKZ)
 #' regsel_f(model)
 #' @references Hebbali, Aravind. Published 2020-02-10. olssr package
@@ -76,7 +75,7 @@ regsel_f<-function(model, pval = 0.3, metric="adjr"&"aic",progress = FALSE, deta
   }
 
   minp   <- which(pvals == min(pvals, na.rm = TRUE))
-  rped  <- c(rped, preds[minp])
+  rped   <- c(rped, preds[minp])
   preds  <- all_pred[minp]
   lpreds <- length(preds)
   fr     <- ols_regress(paste(response, "~", paste(preds, collapse = " + ")), l)

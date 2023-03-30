@@ -15,6 +15,7 @@ reg_plot(model, dataset)
 The function depicts forecast and actual data.
 }
 \examples{
+data(macroKZ)
 model <- lm(real_gdp ~ usdkzt + eurkzt + imp + exp, data = macroKZ)
 reg_plot(model, macroKZ)
 }

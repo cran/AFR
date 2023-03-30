@@ -5,6 +5,7 @@
 #' @param dataset A dataset based on which model was built
 #' @param print_plot logical
 #' @examples
+#' data(macroKZ)
 #' model <- lm(real_gdp ~ usdkzt + eurkzt + imp+exp, data = macroKZ)
 #' dec_plot(model, macroKZ)
 #' @references Hebbali, Aravind. Published 2020-02-10. olssr package

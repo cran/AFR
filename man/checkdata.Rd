@@ -2,7 +2,7 @@
 % Please edit documentation in R/checkdata.R
 \name{checkdata}
 \alias{checkdata}
-\title{Data check for errors}
+\title{Preliminary data check for errors}
 \usage{
 checkdata(x)
 }
@@ -10,7 +10,11 @@ checkdata(x)
 \item{x}{is a data frame}
 }
 \description{
-Preliminary check of data frame for missing values, wrong format, outliers.
+Preliminary check of data frame for missing values, numeric format, outliers.
+
+Missing items: The number of missing values in each column of the dataset.
+Numeric format: The number of non-numeric variables in each column of the dataset.
+Outliers: The number of outliers in each column of the dataset.
 }
 \examples{
 data(macroKZ)

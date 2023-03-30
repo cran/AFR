@@ -53,17 +53,9 @@ macroKZ<-na.remove(macroKZ)
 ### Step 2
 
 As dataset is preliminary cleaned, time-series data needs to be stationary. Stationarity is needed for the properties to be independent of time periods, i.e. mean, variance etc are constant over time.
-In R stationarity can be checked by Augmented-Dickey Fuller (*adf*) and/or Kwiatkowski-Phillips-Schmidt-Shin (*kpss.test*) tests.
-
-```{r, echo=TRUE}
-adf(macroKZ)
-```
+In R stationarity can be checked by Augmented-Dickey Fuller (*adf.test*) and/or Kwiatkowski-Phillips-Schmidt-Shin (*kpss.test*) tests.
 
 In more details, *macroKZ* can use *sapply* function to view which parameter is stationary or not.
-
-```{r, results="hide"}
-sapply(macroKZ, adf)
-```
 
 ### Step 3
 
@@ -71,7 +63,6 @@ If dataset, as a whole, or individual parameters are non-stationary, it is recom
 
 ```{r, results="hide"}
 new<-log(macroKZ)
-sapply(new, adf)
 ```
 
 ### Step 4

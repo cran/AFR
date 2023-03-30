@@ -23,6 +23,7 @@ following components:
 Test for detecting violation of Gauss-Markov assumptions.
 }
 \examples{
+data(macroKZ)
 model <- lm(real_gdp~ imp + exp + poil + eurkzt + usdkzt, macroKZ)
 reg_test(model)
 }
