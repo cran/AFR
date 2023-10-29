@@ -62,6 +62,7 @@ check_betas <- function(object, ...) {
 #' Internal function for all possible regression.
 #'
 #' @param model An object of class \code{lm}.
+#' @importFrom utils combn
 #' @noRd
 
 

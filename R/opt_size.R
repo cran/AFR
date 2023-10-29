@@ -1,6 +1,6 @@
 #' @title Necessary size of the time-series dataset
 #' @description
-#' Estimates number of models generated from given number of regressors {x}
+#' Estimates number of models generated from given number of regressors X
 #' @usage opt_size(model)
 #' @param model is a linear regression model a class \code{lm}.
 #' @examples

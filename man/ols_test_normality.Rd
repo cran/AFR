@@ -2,13 +2,10 @@
 % Please edit documentation in R/ols_test_normality.R
 \name{ols_test_normality}
 \alias{ols_test_normality}
-\alias{ols_test_normality.lm}
 \title{Test for normality
 Test for detecting violation of normality assumption.}
 \usage{
 ols_test_normality(model, ...)
-
-\method{ols_test_normality}{lm}(model, ...)
 }
 \arguments{
 \item{model}{an object of class \code{lm}.}

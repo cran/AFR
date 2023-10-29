@@ -29,7 +29,7 @@ each step.}
 \item{...}{other arguments}
 }
 \description{
-The function allows to choose regressors based on multiple criteria as {AIC}, {RMSE} etc
+The function allows to choose regressors based on multiple criteria as AIC, RMSE etc
 }
 \examples{
 data(macroKZ)

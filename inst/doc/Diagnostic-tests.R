@@ -1,4 +1,4 @@
-## ---- include = FALSE---------------------------------------------------------
+## ----include = FALSE----------------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -8,30 +8,29 @@ knitr::opts_chunk$set(
 library(AFR)
 library(lmtest)
 library(stats)
-library(regclass)
 library(olsrr)
 
-## ---- echo=TRUE---------------------------------------------------------------
+## ----echo=TRUE----------------------------------------------------------------
 model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
 bp(model)
 
-## ---- echo=TRUE---------------------------------------------------------------
+## ----echo=TRUE----------------------------------------------------------------
 model <- lm(real_gdp ~ imp + exp+poil+eurkzt, macroKZ)
 gq(model)
 
-## ---- echo=TRUE---------------------------------------------------------------
+## ----echo=TRUE----------------------------------------------------------------
 model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
 vif_reg(model)
 
-## ---- echo=TRUE---------------------------------------------------------------
+## ----echo=TRUE----------------------------------------------------------------
 model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
 dwtest(model)
 
-## ---- echo=TRUE---------------------------------------------------------------
+## ----echo=TRUE----------------------------------------------------------------
 model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
 bg(model)
 
-## ---- echo=TRUE---------------------------------------------------------------
+## ----echo=TRUE----------------------------------------------------------------
 #model <- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)
 #ols_test_normality(model)
 

@@ -10,7 +10,7 @@ opt_size(model)
 \item{model}{is a linear regression model a class \code{lm}.}
 }
 \description{
-Estimates number of models generated from given number of regressors {x}
+Estimates number of models generated from given number of regressors X
 }
 \examples{
 data(macroKZ)

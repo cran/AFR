@@ -1,6 +1,6 @@
 #' @title Regressors selection
 #' @description
-#' The function allows to choose regressors based on multiple criteria as {AIC}, {RMSE} etc
+#' The function allows to choose regressors based on multiple criteria as AIC, RMSE etc
 #' @param model is a linear regression model
 #' @param pval p value; variables with p value less than \code{pval} will
 #'   enter into the model
@@ -17,6 +17,7 @@
 #' @import stats
 #' @import olsrr
 #' @importFrom car Anova
+#' @importFrom utils tail
 #' @rdname regsel_f
 #' @export
 

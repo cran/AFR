@@ -1,7 +1,7 @@
 .onAttach <- function(libname, pkgname) {
 
   mylib <- dirname(system.file(package = "AFR"))
-  ver <- packageDescription("AFR", lib.loc = mylib)["Version"]
+  ver <- utils::packageDescription("AFR")["Version"]
   txt <- c("\n",
            paste(sQuote("AFR"), "version:", ver),
            "\n",
