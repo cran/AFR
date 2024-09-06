@@ -1,6 +1,5 @@
-
 #' @title macroKZ dataset
-#' @format A time series data frame of 54 quarterly observations of 50 macroeconomic and 10 financial parameters for 2010-2023 period.
+#' @format A time series data frame of 57 quarterly observations of 50 macroeconomic and 10 financial parameters for 2010-2024 period.
 #' \describe{
 #'  \item{real_gdp}{Real GDP}
 #'  \item{GDD_Agr_R}{Real gross value added Agriculture}
@@ -66,6 +65,4 @@
 #'}
 #' @source Bureau of National statistics, Agency for Strategic planning and reforms of the Republic of Kazakhstan
 #' @references The Agency of the Republic of Kazakhstan for Regulation and Development of Financial Market
-#' @export
-"macroKZ"
-
+'macroKZ'

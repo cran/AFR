@@ -33,5 +33,4 @@
 #'  \item{WC}{Working capital turnover}
 #' }
 #' @references The Agency of the Republic of Kazakhstan for Regulation and Development of Financial Market
-#' @export
-"finratKZ"
+'finratKZ'
