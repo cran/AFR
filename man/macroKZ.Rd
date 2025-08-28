@@ -5,7 +5,7 @@
 \alias{macroKZ}
 \title{macroKZ dataset}
 \format{
-A time series data frame of 57 quarterly observations of 50 macroeconomic and 10 financial parameters for 2010-2024 period.
+A time series data frame of 61 quarterly observations of 50 macroeconomic and 10 financial parameters for 2010-2025 period.
 \describe{
  \item{real_gdp}{Real GDP}
  \item{GDD_Agr_R}{Real gross value added Agriculture}

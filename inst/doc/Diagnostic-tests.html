@@ -49,7 +49,7 @@ overflow: visible;
 </style>
 <style type="text/css" data-origin="pandoc">
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -60,7 +60,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
 { counter-reset: source-line 0; }
@@ -340,8 +340,6 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 
 
-<pre><code>#&gt; Warning: package &#39;lmtest&#39; was built under R version 4.0.5</code></pre>
-<p>Diagnostic-tests.R</p>
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
 <p>For the analysis of multiple linear regression models statisticians
@@ -384,18 +382,17 @@ regression model and assumes that the error terms are normally
 distributed. It tests whether the variance of the errors from a
 regression is dependent on the values of the independent variables. Null
 hypothesis states that error variances are constant.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp <span class="sc">+</span> poil <span class="sc">+</span> eurkzt,macroKZ)</span>
-<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">bp</span>(model)</span>
-<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt;                                Breusch-Pagan test                                </span></span>
-<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; Heteroskedasticity presents.</span></span>
-<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; Please use other tests additionally.</span></span>
-<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; In case of opposite results study the case further.</span></span>
-<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; --------------------</span></span>
-<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; BP            15.152 </span></span>
-<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; p-value        0.004 </span></span>
-<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; --------------------</span></span></code></pre></div>
-<p>Diagnostic-tests.R</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp <span class="sc">+</span> poil <span class="sc">+</span> eurkzt,macroKZ)</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">bp</span>(model)</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="co">#&gt;                                Breusch-Pagan test                                </span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="co">#&gt; Heteroskedasticity presents.</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="co">#&gt; Please use other tests additionally.</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="co">#&gt; In case of opposite results study the case further.</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="co">#&gt; --------------------</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="co">#&gt; BP            13.211 </span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="co">#&gt; p-value         0.01 </span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="co">#&gt; --------------------</span></span></code></pre></div>
 </div>
 <div id="goldfeld-quandt-test" class="section level4">
 <h4>Goldfeld-Quandt Test</h4>
@@ -404,20 +401,19 @@ test for homoscedasticity. It compares variances of two subgroups; one
 set of high values and one set of low values. If the variances differ,
 the test rejects the null hypothesis that the variances of the errors
 are not constant.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp<span class="sc">+</span>poil<span class="sc">+</span>eurkzt, macroKZ)</span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">gq</span>(model)</span>
-<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;                               Goldfeld-Quandt test                               </span></span>
-<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; Homoskedasticity presents.</span></span>
-<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; Please use other tests additionally.</span></span>
-<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; In case of opposite results study the case further.</span></span>
-<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt; -------------------</span></span>
-<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; GQ            1.951 </span></span>
-<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; p-value       0.057 </span></span>
-<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; df1              24 </span></span>
-<span id="cb3-12"><a href="#cb3-12" tabindex="-1"></a><span class="co">#&gt; df2              23 </span></span>
-<span id="cb3-13"><a href="#cb3-13" tabindex="-1"></a><span class="co">#&gt; -------------------</span></span></code></pre></div>
-<p>Diagnostic-tests.R</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp<span class="sc">+</span>poil<span class="sc">+</span>eurkzt, macroKZ)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="fu">gq</span>(model)</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="co">#&gt;                               Goldfeld-Quandt test                               </span></span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="co">#&gt; Homoskedasticity presents.</span></span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="co">#&gt; Please use other tests additionally.</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="co">#&gt; In case of opposite results study the case further.</span></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a><span class="co">#&gt; -------------------</span></span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a><span class="co">#&gt; GQ             1.74 </span></span>
+<span id="cb2-10"><a href="#cb2-10" tabindex="-1"></a><span class="co">#&gt; p-value       0.112 </span></span>
+<span id="cb2-11"><a href="#cb2-11" tabindex="-1"></a><span class="co">#&gt; df1              20 </span></span>
+<span id="cb2-12"><a href="#cb2-12" tabindex="-1"></a><span class="co">#&gt; df2              20 </span></span>
+<span id="cb2-13"><a href="#cb2-13" tabindex="-1"></a><span class="co">#&gt; -------------------</span></span></code></pre></div>
 </div>
 </div>
 <div id="non-collinearity" class="section level3">
@@ -432,18 +428,17 @@ Breusch-Godfrey tests for autocorrelation.</p>
 &gt; 5 there is an indication that multicollinearity may be present;
 with VIF &gt; 10 there is certainly multicollinearity among the
 variables.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp <span class="sc">+</span> poil <span class="sc">+</span> eurkzt,macroKZ)</span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">vif_reg</span>(model)</span>
-<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt;                            Variance Inflation Factor                             </span></span>
-<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; If statistics exceeds 5, please be aware of multicollinearity.</span></span>
-<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt;    imp    exp   poil eurkzt </span></span>
-<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt;  2.062 14.815 16.244  2.328 </span></span>
-<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="co">#&gt; This value 14.815 exceeds acceptable threshold.</span></span>
-<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="co">#&gt; This value 16.244 exceeds acceptable threshold.</span></span></code></pre></div>
-<p>Diagnostic-tests.R</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp <span class="sc">+</span> poil <span class="sc">+</span> eurkzt,macroKZ)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="fu">vif_reg</span>(model)</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="co">#&gt;                            Variance Inflation Factor                             </span></span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="co">#&gt; If statistics exceeds 5, please be aware of multicollinearity.</span></span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a><span class="co">#&gt;    imp    exp   poil eurkzt </span></span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a><span class="co">#&gt;  1.655 14.621 17.925  2.022 </span></span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb3-10"><a href="#cb3-10" tabindex="-1"></a><span class="co">#&gt; This value 14.621 exceeds acceptable threshold.</span></span>
+<span id="cb3-11"><a href="#cb3-11" tabindex="-1"></a><span class="co">#&gt; This value 17.925 exceeds acceptable threshold.</span></span></code></pre></div>
 </div>
 <div id="durbin-watson-test" class="section level4">
 <h4>Durbin-Watson Test</h4>
@@ -453,15 +448,14 @@ Durbin-Watson statistic will always have a value ranging between 0 and
 4. A value of 2.0 indicates there is no autocorrelation detected in the
 sample. Values from 0 to less than 2 point to positive autocorrelation
 and values from 2 to 4 means negative autocorrelation.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp <span class="sc">+</span> poil <span class="sc">+</span> eurkzt,macroKZ)</span>
-<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">dwtest</span>(model)</span>
-<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt;  Durbin-Watson test</span></span>
-<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; data:  model</span></span>
-<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; DW = 2.1296, p-value = 0.5525</span></span>
-<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true autocorrelation is greater than 0</span></span></code></pre></div>
-<p>Diagnostic-tests.R</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp <span class="sc">+</span> poil <span class="sc">+</span> eurkzt,macroKZ)</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">dwtest</span>(model)</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="co">#&gt;  Durbin-Watson test</span></span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a><span class="co">#&gt; data:  model</span></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="co">#&gt; DW = 2.0436, p-value = 0.4148</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="co">#&gt; alternative hypothesis: true autocorrelation is greater than 0</span></span></code></pre></div>
 </div>
 <div id="breusch-godfrey-test" class="section level4">
 <h4>Breusch-Godfrey Test</h4>
@@ -471,16 +465,15 @@ included in a proposed model structure and which, if present, would mean
 that incorrect conclusions would be drawn from other tests or that
 sub-optimal estimates of model parameters would be obtained.Null
 hypothesis states that there is no autocorrelation.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp <span class="sc">+</span> poil <span class="sc">+</span> eurkzt,macroKZ)</span>
-<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">bg</span>(model)</span>
-<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="co">#&gt;           Breusch-Godfrey test for serial correlation of order up to 1           </span></span>
-<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a><span class="co">#&gt; Residuals are not autocorrelated. </span></span>
-<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a><span class="co">#&gt; -------------------</span></span>
-<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a><span class="co">#&gt; LM test       0.324 </span></span>
-<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a><span class="co">#&gt; p-value       0.569 </span></span>
-<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a><span class="co">#&gt; -------------------</span></span></code></pre></div>
-<p>Diagnostic-tests.R</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(real_gdp <span class="sc">~</span> imp <span class="sc">+</span> exp <span class="sc">+</span> poil <span class="sc">+</span> eurkzt,macroKZ)</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="fu">bg</span>(model)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="co">#&gt;           Breusch-Godfrey test for serial correlation of order up to 1           </span></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="co">#&gt; </span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="co">#&gt; Residuals are not autocorrelated. </span></span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="co">#&gt; -------------------</span></span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="co">#&gt; LM test       0.048 </span></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="co">#&gt; p-value       0.827 </span></span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="co">#&gt; -------------------</span></span></code></pre></div>
 </div>
 </div>
 <div id="normality" class="section level3">
@@ -491,9 +484,8 @@ bell-shaped curve. The normal distribution is a symmetrical continuous
 distribution defined by the mean and standard deviation of the data.</p>
 <p>In AFR package 4 normality tests are compiled in one
 <em>norm_test</em> function referred to <em>olsrr</em> package.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co">#model &lt;- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="co">#ols_test_normality(model)</span></span></code></pre></div>
-<p>Diagnostic-tests.R</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="co">#model &lt;- lm(real_gdp ~ imp + exp + poil + eurkzt,macroKZ)</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="co">#ols_test_normality(model)</span></span></code></pre></div>
 <div id="shapiro-wilk-statistic" class="section level4">
 <h4>Shapiro-Wilk statistic</h4>
 <p>The null-hypothesis of this test is that the population is normally
